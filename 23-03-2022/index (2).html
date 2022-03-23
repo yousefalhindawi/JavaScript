@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <script>
+        
+            let styleDiv = document.getElementById("div1");
+            styleDiv.style.backgroundColor = "blue";
+            styleDiv.onclick = changeColor;
+        
+
+        function changeColor() {
+            let color = this.style.backgroundColor;
+            let newColor;
+            switch (color) {
+                case "red":
+                    newColor = "blue";
+                    break;
+                case "blue":
+                    newColor = "red";
+                    break;
+            }
+            this.style.backgroundColor = newColor;
+        }
+
+    </script>
+</body>
+</html>

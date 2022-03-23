@@ -1,5 +1,5 @@
 // Task-1
-let input = 85;
+let input = 49;
 
 switch (true) {
   case input >= 0 && input <= 49:

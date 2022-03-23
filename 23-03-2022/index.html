@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Document</title>
+</head>
+<body>
+    <!-- task1 -->
+    <p id="hello" onmouseover="yellow(this)" onmouseout="rest(this)">Hello, world</p>
+    <!-- task2 -->
+    <div></div>
+    <script>
+         // Task1
+        document.getElementById("hello").style.width="100px";
+        document.getElementById("hello").style.padding="30px";
+        document.getElementById("hello").style.backgroundColor="yellow";
+        function yellow(params) {
+            params.innerHTML="Can I help you?"
+        }
+        function rest(params){
+            params.innerHTML='Hello, world'
+        }
+        // Task2
+        let X = document.getElementsByTagName('div');
+        X[0].style.width="100px";
+        X[0].style.height="100px";
+        X[0].style.backgroundColor="blue";
+        X[0].onclick=function red(){
+            X[0].style.backgroundColor='red';
+        };
+        X[0].onclick=function blue(){
+            X[0].style.backgroundColor='blue';
+        };
+        
+    </script>
+</body>
+</html>

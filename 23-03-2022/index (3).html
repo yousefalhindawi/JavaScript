@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3</title>
+
+    <style>
+        img {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+        select {
+            font-weight: bold;
+            width: 200px;
+            height: 40px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+        <form name="form" method='get' action="http://">
+            <select name="countries" id="countries" onchange="changeImage();">
+                <option value="https://via.placeholder.com/100">Select</option>
+                <option value="jordan.png">JORDAN</option>
+                <option value="palestine.png">PALASTINE</option>
+                <option value="syria.jpg">SYRIA</option>
+                <option value="lebanon.jpg">LEBANON</option>
+            </select>
+        </form>
+
+        <img id="img" src="https://via.placeholder.com/100"/>
+
+        <script>
+            function changeImage() {
+                let country = document.getElementById("countries");
+                let img = document.getElementById("img");
+                img.src = "./images/" + country.options[country.selectedIndex].value;
+            }
+    
+        </script>
+</body>
+</html>
