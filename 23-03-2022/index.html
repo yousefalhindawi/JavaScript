@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,34 +8,87 @@
     <meta name="description" content="">
     <title>Document</title>
 </head>
+
 <body>
     <!-- task1 -->
     <p id="hello" onmouseover="yellow(this)" onmouseout="rest(this)">Hello, world</p>
+    <hr>
     <!-- task2 -->
     <div></div>
+    <hr>
+    <!-- task3 -->
+    <form action="get" action="" style="margin-bottom:10px">
+        <select name="Countries" id="Countries">
+            <option value="">Select</option>
+            <option value="">JORDAN</option>
+            <option value="">PALASTINE</option>
+            <option value="">SYRIA</option>
+            <option value="">LEBANON</option>
+        </select>
+    </form>
+    <img src="https://via.placeholder.com/100" alt="flag" id="flag">
+
     <script>
-         // Task1
-        document.getElementById("hello").style.width="100px";
-        document.getElementById("hello").style.padding="30px";
-        document.getElementById("hello").style.backgroundColor="yellow";
-        function yellow(params) {
-            params.innerHTML="Can I help you?"
+        
+        let Countries = document.getElementById("Countries");
+        Countries.onChange = function () {
+            img.src = "./images/" + this.options[this.selectedIndex].value;
+            // let image = document.getElementById("flag");
+            // let source = image.src;
+            // let newSource = '';
+            // switch (CountriesList[selectedIndex]) {
+            //     case "Select":
+            //         newSource = "https://via.placeholder.com/100"
+            //         break;
+            //     case "JORDAN":
+            //         newSource = "./images/jordan.png"
+            //         break;
+            //     case "PALASTINE":
+            //         newSource = "./images/palestine.png"
+            //         break;
+            //     case "SYRIA":
+            //         newSource = "./images/syria.jpg"
+            //         break;
+            //     case "LEBANON":
+            //         newSource = "./images/palestine.png"
+            //         break;
+            // }
+            // source = newSource;
         }
-        function rest(params){
-            params.innerHTML='Hello, world'
+
+        // Task1
+        document.getElementById("hello").style.width = "100px";
+        document.getElementById("hello").style.padding = "30px";
+        document.getElementById("hello").style.backgroundColor = "yellow";
+        function yellow(params) {
+            params.innerHTML = "Can I help you?"
+        }
+        function rest(params) {
+            params.innerHTML = 'Hello, world'
         }
         // Task2
-        let X = document.getElementsByTagName('div');
-        X[0].style.width="100px";
-        X[0].style.height="100px";
-        X[0].style.backgroundColor="blue";
-        X[0].onclick=function red(){
-            X[0].style.backgroundColor='red';
+        let divList = document.getElementsByTagName('div');
+        divList[0].style.width = "100px";
+        divList[0].style.height = "100px";
+        divList[0].style.backgroundColor = "blue";
+
+        divList[0].onclick = function () {
+            let color = this.style.backgroundColor;
+            let newColor;
+            switch (color) {
+                case "red":
+                    newColor = "blue";
+                    break;
+                case "blue":
+                    newColor = "red";
+                    break;
+            }
+            this.style.backgroundColor = newColor
         };
-        X[0].onclick=function blue(){
-            X[0].style.backgroundColor='blue';
-        };
-        
+        // Task3
+
+
     </script>
 </body>
+
 </html>
