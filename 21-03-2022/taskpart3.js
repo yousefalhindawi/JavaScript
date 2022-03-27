@@ -509,14 +509,20 @@ function counter() {
 console.log(counter());
 console.log(counter());
 console.log(counter());
+console.log(counter());
 
+console.log(`${count} and the counter reset now`);
+count = 0;
+let countReset = count;
 function resetCounter() {
-  count -= 1;
-  return `${count} and the counter reset now`;
+  countReset++
+  return countReset;
 }
 console.log(resetCounter());
 console.log(resetCounter());
 console.log(resetCounter());
+
+
 /*
 24
 Write a function called resetCounter

@@ -28,33 +28,44 @@
     </form>
     <img src="https://via.placeholder.com/100" alt="flag" id="flag">
 
+    <!-- task 4 -->
+    <form action="" method="get">
+        <select name="family" id="family" onchange=changeFamily()>
+            <option value="Arial" selected>Arial</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+        </select>
+        <input type="number" name="num" id="num" min="0" onchange=changeSize()>
+        <input type="checkbox" name="bold" id="bold" onchange= boldy()>
+        <label for="bold">bold</label>
+        <input type="checkbox" name="italic" id="italic" onchange=italicy()>
+        <label for="italic">italic</label>
+        <input type="checkbox" name="underline" id="underline" onchange=underliney()>
+        <label for="underline">underline</label>
+        </form>
+        <p id="changeP" style="border: 1px solid black;height: 100px;width: fit-content;padding: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    
+        <!-- task 5-->
+        <hr>
+        <form action="" method="get">
+            <label for="password">password</label>
+        <input type="text" name="password" id="password" placeholder="Min 6 characters" onkeyup=checkValid()><span id="error1"></span>
+        <br> <label for="reppassword">Repeat password</label>
+        <input type="text" name="reppassword" id="reppassword" placeholder="Repeat password" onkeyup=checkValidTepet()><span id="error2"></span>
+        <br><input type="submit" value="submit" id="submitpass" style="display: none">
+        </form>
+        <!-- task 6-->
+        <hr>
+            <input type="text" name="song" id="song" placeholder="Enter your favorite song">
+            <button onclick=addsong() id="addsong">add song</button>
+        <div id="songlist"></div>
+        <hr>
+
     <script>
         
-        let Countries = document.getElementById("Countries");
-        Countries.onChange = function () {
-            img.src = "./images/" + this.options[this.selectedIndex].value;
-            // let image = document.getElementById("flag");
-            // let source = image.src;
-            // let newSource = '';
-            // switch (CountriesList[selectedIndex]) {
-            //     case "Select":
-            //         newSource = "https://via.placeholder.com/100"
-            //         break;
-            //     case "JORDAN":
-            //         newSource = "./images/jordan.png"
-            //         break;
-            //     case "PALASTINE":
-            //         newSource = "./images/palestine.png"
-            //         break;
-            //     case "SYRIA":
-            //         newSource = "./images/syria.jpg"
-            //         break;
-            //     case "LEBANON":
-            //         newSource = "./images/palestine.png"
-            //         break;
-            // }
-            // source = newSource;
-        }
+     
 
         // Task1
         document.getElementById("hello").style.width = "100px";
@@ -86,6 +97,82 @@
             this.style.backgroundColor = newColor
         };
         // Task3
+        // task 4
+let myP = document.querySelector("#changeP");
+function changeFamily() {
+  let myF = document.querySelector("#family");
+  myP.style.fontFamily = myF.value;
+}
+
+function changeSize() {
+  let myInp1 = document.querySelector("#num");
+  myP.style.fontSize = `${myInp1.value}px`;
+}
+
+function boldy() {
+  let myInp2 = document.querySelector("#bold");
+  if (myInp2.checked === true) {
+    myP.style.fontWeight = "bold";
+  } else {
+    myP.style.fontWeight = "normal";
+  }
+}
+function italicy() {
+  let myInp3 = document.querySelector("#italic");
+  if (myInp3.checked === true) {
+    myP.style.fontStyle = "italic";
+  } else {
+    myP.style.fontStyle = "normal";
+  }
+}
+function underliney() {
+  let myInp4 = document.querySelector("#underline");
+  if (myInp4.checked === true) {
+    myP.style.textDecoration = "underline";
+  } else {
+    myP.style.textDecoration = "none";
+  }
+}
+
+//task 5
+
+let myInp5 = document.querySelector("#password");
+let myInpSpan1 = document.querySelector("#error1");
+let myInp6 = document.querySelector("#reppassword");
+let myInpSpan2 = document.querySelector("#error2");
+let submitted = document.querySelector("#submitpass");
+
+function checkValid() {
+  
+ 
+  let passwordValid1 = false;
+  
+  if (myInp5.value.length < 6) {
+    myInpSpan1.innerHTML = "Min 6 characters";
+    myInpSpan1.style.color = "red";
+  } else {
+    myInpSpan1.innerHTML = "";
+  }
+  
+}
+
+function checkValidTepet(){
+  if (myInp5.value!==myInp6.value) {
+    myInpSpan2.innerHTML = "the two passwords must be the same";
+    myInpSpan2.style.color = "red";
+  }else {
+    myInpSpan2.innerHTML = "";
+    submitted.style.display = 'inline';
+  }
+}
+
+// task 6
+
+function addsong() {
+  let div = document.querySelector('#songlist');
+  let myInp7 = document.querySelector('#song')
+  div.innerHTML += `<p style = "background-color: #ddd;padding:10px; margin-top: 10px;">${myInp7.value}</p>`;
+}
 
 
     </script>

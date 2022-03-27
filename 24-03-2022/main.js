@@ -129,10 +129,10 @@ HELLO")
  hello:3
 }
 */
-function repeatWord(params) {
+function repeatWord(string) {
     let obj = {}
-    let split = params.toLowerCase().split(" ");
-    for (let i = 0; i < params.length; i++) {
+    let split = string.toLowerCase().split(" ");
+    for (let i = 0; i < split.length; i++) {
         if (obj[split[i]] === undefined) {
             obj[split[i]] = 1;
           } else {
@@ -141,8 +141,35 @@ function repeatWord(params) {
     }
     return obj;
 }
+function repeatNumber(array) {
+    let obj = {}
+    for (let i = 0; i < array.length; i++) {
+        if (obj[array[i]] === undefined) {
+            obj[array[i]] = 1;
+          } else {
+            obj[array[i]]+= 1;
+          }
+    }
+    return obj;
+}
 console.log(repeatWord("My name is alex mercer class name B baba mama hello Hello HELLO"))
+console.log(repeatNumber([1,6,1,5,1,2,1,5,1,1,6,1,2]))
 
+function repeatNumber1(array){
+    let obj ={}
+    for(let i=0; i<array.length; i++){
+        let counter = 0
+        for(let j=0; j<array.length; j++){
+            if (array[i]===array[j]){
+                counter++
+            }
+            obj[array[i]]=counter
+        }
+    }
+    return obj;
+}
+
+console.log(repeatNumber1([1,1,1,1,1,1,1,1,1,1,1,1,1]))
 
 /*
 8

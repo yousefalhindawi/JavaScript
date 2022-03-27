@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="task2">
+    <script src="main2.js" defer></script>
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        /* task2 */
+        form > *{
+            display: block;
+            padding: 10px;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        form div {
+            width: 50%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        img {
+            display:none;
+            margin: 10px auto;
+        }
+        .cards{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap:10px;
+            visibility: hidden;
+        }
+        .card {
+            background-color:#dedede;
+            padding:10px;
+        }
+        h4 {
+            text-align: center;
+        }
+        #programming li {
+            display:none
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Task2 -->
+    <form action="#" method="get">
+        <input type="text" name="Subject" id="Subject" placeholder="Subject">
+        <input type="text" name="descrip" id="descrip" placeholder="descrip">
+        <input type="text" name="userTypes" id="userTypes" placeholder="userTypes">
+        <input type="text" name="Technology" id="Technology" placeholder="Technology">
+        <input type="submit" value="submit" id="submit">
+       
+    </form>
+    <div class="cards">
+        <div class="card">
+            <h4>Project Information:</h4>
+            <p id="Sub"></p>
+            <p id="desc"></p>
+            <p id="types"></p>
+        </div>
+        <div class="card">
+            <h4>Technology used:</h4>
+        <p id="tech"></p>
+    </div>
+    <img src="https://via.placeholder.com/300.png/09f/fff" alt="pic" >
+    </div>
+</body>
+</html>
