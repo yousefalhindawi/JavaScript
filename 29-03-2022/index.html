@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Document</title>
+
+</head>
+<body>
+    <select name="" id="">
+        <option value="">Please select</option>
+    </select>
+    <div></div>
+    <script>
+        let div = document.querySelector('div')
+        let options = document.querySelector('select')
+        async function LoadData() {
+            const response = await fetch('https://www.breakingbadapi.com/api/characters')
+            const data = await response.json();
+            console.log(data)
+            for (let i = 0; i < data.length; i++) {
+                options.innerHTML += `<option>${data[i].name}</option>`
+            }
+            options.addEventListener('change', function(){
+                for (let j = 0; j< data.length; j++){
+                    if (data[j].name === options.value){
+                        div.innerHTML = data[j].birthday;
+                    }
+                }
+            });
+        }
+        LoadData()
+        
+    </script>
+</body>
+</html>
