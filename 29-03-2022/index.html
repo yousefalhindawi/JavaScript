@@ -18,8 +18,8 @@
         let options = document.querySelector('select')
         async function LoadData() {
             const response = await fetch('https://www.breakingbadapi.com/api/characters')
-            const data = await response.json();
-            console.log(data)
+            const data = await response.json(); // return object 
+            // console.log(data) 
             for (let i = 0; i < data.length; i++) {
                 options.innerHTML += `<option>${data[i].name}</option>`
             }
@@ -32,6 +32,7 @@
             });
         }
         LoadData()
+        
         
     </script>
 </body>

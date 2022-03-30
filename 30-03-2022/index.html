@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            margin-left: 70px;
+        }
+
+        form li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        form ul li label {
+            float: left;
+            clear: left;
+            width: 100px;
+            text-align: right;
+            margin-right: 10px;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        form ul li input,
+        select,
+        span {
+            float: left;
+            margin-bottom: 10px;
+        }
+
+        form textarea {
+            float: left;
+            width: 350px;
+            height: 150px;
+        }
+
+        [type="submit"] {
+            clear: left;
+            margin: 20px 0 0 230px;
+            font-size: 18px
+        }
+
+        p {
+            margin-left: 70px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Registration Form</h1>
+    Use tab keys to move from one input field to the next.
+    <form name='registration' onSubmit=formValidation()>
+        <ul>
+            <li><label for="firstName">firstName:</label></li>
+            <li><input type="text" name="username" size="50" id="firstName" required /><span id="error1"></span></li>
+            <li><label for="lastName">lastName:</label></li>
+            <li><input type="text" name="username" size="50" id="lastName" required /><span id="error2"></span></li>
+            <li><label for="birth">Birth date:</label></li>
+            <li><input type='date' name="birthdate" size="50" id='birth' required /><span id="error3"></span></li>
+            <li><label for="email">Email:</label></li>
+            <li><input type="text" name="email" size="50" id="email" required /><span id="error4"></span></li>
+            <li><label for="passid">Password:</label></li>
+            <li><input type="password" name="passid" size="12" id="passid" required /><span id="error5"></span></li>
+            <li><input type="submit" name="submit" value="Submit" id="submit" /></li>
+        </ul>
+    </form>
+    <!-- <input type="text" placeholder="Email" id="email">
+    <input type="text" placeholder="Email" id="email">
+    <input type="text" placeholder="Email" id="email">
+    <input type="text" placeholder="Email" id="email">
+    <button id="submit">Submit</button> -->
+
+    <script>
+        // let submit = document.querySelector("#submit")
+        // let email = document.querySelector("#email");
+        // submit.addEventListener("click", function() {
+        //     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        //     if (email.value.match(validRegex)) {
+        //         alert("Valid email address!");
+        //         return true;
+        //     } else {
+        //         alert("Invalid email address!");
+        //         return false;
+        //     }
+        // })
+
+        let firstName = document.querySelector("#firstName")
+        let lastName = document.querySelector("#lastName")
+        let email = document.querySelector("#email")
+        let password = document.querySelector("#passid")
+        let submit = document.querySelector("#submit")
+        let error1 = document.querySelector("#error1")
+        let error2 = document.querySelector("#error2")
+        let error3 = document.querySelector("#error3")
+        let error4 = document.querySelector("#error4")
+        let error5 = document.querySelector("#error5")
+        firstName.addEventListener("keyup", function () {
+            let letters = /^[^a-zA-Z]*S$/;
+            if (firstName.value.match(letters)) {
+                error1.innerHTML = "";
+                return true;
+            }
+            else {
+                error1.innerHTML = "firstName must have alphabet characters only";
+                error1.style.color = "red";
+                return false;
+            }
+        })
+
+        lastName.addEventListener("keyup", function () {
+            let letters = /^[^a-zA-Z]*S$/;
+            if (lastName.value.match(letters)) {
+                error2.innerHTML = "";
+                return true;
+            }
+            else {
+                error2.innerHTML = "lastName must have alphabet characters only";
+                error2.style.color = "red";
+                return false;
+            }
+        })
+
+        email.addEventListener("keyup", function () {
+            let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if (email.value.match(validRegex)) {
+                error4.innerHTML = "";
+                return true;
+            } else {
+                error4.innerHTML = "Invalid email address!";
+                error4.style.color = "red";
+                return false;
+            }
+        })
+
+        password.addEventListener("keyup", function () {
+            let validRegex = /^[A-Z]{1,2}(?=.*\2d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!#$%&?]{8,20}$/
+            if (password.value.match(validRegex)) {
+                error5.innerHTML = "";
+                
+            } else {
+                error5.innerHTML = "Min 6 characters";
+                error5.style.color = "red";
+            }
+
+        })
+
+
+
+
+
+        submit.addEventListener('click', function () {
+            function allLetter(firstName) {
+
+            }
+            function ValidateEmail(email) {
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if (email.value.match(mailformat)) {
+                    return true;
+                }
+                else {
+                    console.log("You have entered an invalid email address!");
+                    email.focus();
+                    return false;
+                }
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>
